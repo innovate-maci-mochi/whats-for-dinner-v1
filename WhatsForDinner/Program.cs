@@ -26,6 +26,8 @@ namespace WhatsForDinner
             string mealPrepMode = Console.ReadLine();
 
             Console.WriteLine("How many days would you like to prep dinner this week?");
+            Console.WriteLine("A). 7 days.");
+            Console.WriteLine("B). 5 days.");
             int mealsToPrep = Convert.ToInt32(Console.ReadLine());
             //string mealsToConfirm = RandomizeMeals(weeklyBudget, mealPrepMode, mealsToPrep);
 

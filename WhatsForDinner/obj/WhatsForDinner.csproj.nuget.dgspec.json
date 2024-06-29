@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\rober\\Desktop\\Mama Programming\\Whats For Dinner\\whats-for-dinner\\WhatsForDinner\\WhatsForDinner.csproj": {}
+    "C:\\Users\\rober\\Desktop\\Mama Programming\\Whats For Dinner\\whats-for-dinner\\WhatsForDinner\\WhatsForDinner.csproj": {}
   },
   "projects": {
-    "c:\\Users\\rober\\Desktop\\Mama Programming\\Whats For Dinner\\whats-for-dinner\\WhatsForDinner\\WhatsForDinner.csproj": {
+    "C:\\Users\\rober\\Desktop\\Mama Programming\\Whats For Dinner\\whats-for-dinner\\WhatsForDinner\\WhatsForDinner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\rober\\Desktop\\Mama Programming\\Whats For Dinner\\whats-for-dinner\\WhatsForDinner\\WhatsForDinner.csproj",
+        "projectUniqueName": "C:\\Users\\rober\\Desktop\\Mama Programming\\Whats For Dinner\\whats-for-dinner\\WhatsForDinner\\WhatsForDinner.csproj",
         "projectName": "WhatsForDinner",
-        "projectPath": "c:\\Users\\rober\\Desktop\\Mama Programming\\Whats For Dinner\\whats-for-dinner\\WhatsForDinner\\WhatsForDinner.csproj",
+        "projectPath": "C:\\Users\\rober\\Desktop\\Mama Programming\\Whats For Dinner\\whats-for-dinner\\WhatsForDinner\\WhatsForDinner.csproj",
         "packagesPath": "C:\\Users\\rober\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\rober\\Desktop\\Mama Programming\\Whats For Dinner\\whats-for-dinner\\WhatsForDinner\\obj\\",
+        "outputPath": "C:\\Users\\rober\\Desktop\\Mama Programming\\Whats For Dinner\\whats-for-dinner\\WhatsForDinner\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rober\\AppData\\Roaming\\NuGet\\NuGet.Config"
