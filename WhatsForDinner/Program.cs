@@ -44,18 +44,34 @@ namespace WhatsForDinner
         }
 
         //method to randomize meals
-        /* static string RandomizeMeals(int weeklyBudget, string mealPrepMode, int mealsToPrep)
+        static int RandomizeMeals(int weeklyBudget, string mealPrepMode, int mealsToPrep)
         {
+            //create list to hold meals to display
+            List<string> mealsToDisplay = new List<string>();
+
             if (mealPrepMode == "A")
             {
                 mealsToPrep = weeklyBudget / 7;
             }
             else if (mealPrepMode == "B")
             {
-                int fiveCheapMealsBudget = (weeklyBudget / 7) * 5;
-                int twoNiceMealsBudget = (weeklyBudget / 7) * 2;
+                double fiveCheapMealsBudget = (weeklyBudget * .6 ) / 5;
+                double twoNiceMealsBudget = (weeklyBudget * .4 ) / 2;
             }
             return mealsToPrep;
-        } */
+        }
+
+        //method to display meals
+        static void DisplayMeals(int mealsToPrep) 
+        {
+            Console.WriteLine("Here is your meal plan for the week:");
+            Console.WriteLine("Monday: " + "Peanut Butter Jelly Sandwiches" + cost);
+            Console.WriteLine("Tuesday: " + "Spaghetti" + " $10");
+            Console.WriteLine("Wednesday: " + "Chicken Alfredo" + " $15");
+            Console.WriteLine("Thursday: " + "Tacos" + " $20");
+            Console.WriteLine("Friday: " + "Pizza" + " $10");
+            Console.WriteLine("Saturday: " + "Steak" + " $25");
+            Console.WriteLine("Sunday: " + "Salmon & Asparagus" + " $30");
+        }
     }
 }    
