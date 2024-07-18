@@ -20,41 +20,116 @@ namespace WhatsForDinner
             List<Recipe> recipesToDisplay = new List<Recipe>();
             //variable for total cost
             double totalCostOfRecipes = 0;
+			string username;
+			int recipesToPrep;
+			double weeklyBudget;
+			string costVarianceMode;
 
-            Console.WriteLine("What is your name?");
-            string username = Console.ReadLine();
+			try 
+			{
+				while (true)
+				{
+					Console.WriteLine("What is your name?");
+					username = Console.ReadLine();
 
-            Console.WriteLine("How many meals do you need prepped?");
-            int recipesToPrep = Convert.ToInt32(Console.ReadLine());
+					// cannot use an empty name value
+					if (string.IsNullOrWhiteSpace(username))
+					{
+						Console.WriteLine("You must enter your name to continue...");
+					}
+					else
+					{
+						break;
+					}
+				}
 
-            Console.WriteLine("What's your weekly dinner budget cost?");
-            double weeklyBudget = Convert.ToDouble(Console.ReadLine());
+				while (true)
+				{
+					Console.WriteLine("How many meals do you need prepped?");
+					
+					string recipesToPrepRaw = Console.ReadLine();
 
-            Console.WriteLine("What cost variance mode would you like to use?");
-            Console.WriteLine("A). Same $ per day.");
-            Console.WriteLine("B). Cheap 5x/week, Nice 2x/week.");
-            string costVarianceModeSelected = Console.ReadLine();
+					// cannot use an empty meal count or a count less than 1
+					if (string.IsNullOrWhiteSpace(recipesToPrepRaw) 
+						|| !int.TryParse(recipesToPrepRaw, out recipesToPrep)
+						|| recipesToPrep < 1)
+					{
+						Console.WriteLine("You must enter a valid number of meals to continue...");
+					}
+					else
+					{
+						break;
+					}
+				}
+				
+				while (true)
+				{
+					Console.WriteLine("What's your weekly dinner budget cost?");
 
-            recipesToDisplay = RandomizeMeals(weeklyBudget, costVarianceModeSelected, recipesToPrep, recipesToDisplay);
+					string weeklyBudgetRaw = Console.ReadLine();
 
-            //display recipes for week - iterate over recipesToDisplay List
-            //display total cost of recipes for week - iterate over recipesToDisplay List to calculate
-            foreach (Recipe r in recipesToDisplay)
-            {
-                //Console.WriteLine(r.PrintRecipe); --outputs System.Action, not the recipe!
-                Console.WriteLine($"Recipe: {r.Name}");
-                Console.WriteLine("Ingredients: " + r.Ingredients);
-                Console.WriteLine("Instructions:");
-                Console.WriteLine(r.Instructions);
-                Console.WriteLine("Cost: $" + r.Cost);
-                totalCostOfRecipes += r.Cost;
-            }
+					// cannot use an empty meal count or a count less than 1
+					if (string.IsNullOrWhiteSpace(weeklyBudgetRaw) 
+						|| !double.TryParse(weeklyBudgetRaw, out weeklyBudget)
+						||  weeklyBudget < 1)
+					{
+						Console.WriteLine("You must enter a valid weekly budget amount to continue...");
+					}
+					else
+					{
+						break;
+					}
+				}
 
-            Console.WriteLine("Total Cost of Recipes: $" + totalCostOfRecipes);
-            Console.WriteLine("Budget Usage: " + Convert.ToString((totalCostOfRecipes/weeklyBudget) * 100) + "%");
+				while (true)
+				{
+					Console.WriteLine("What cost variance mode would you like to use?");
+					Console.WriteLine("A). Same $ per day.");
+					Console.WriteLine("B). Cheap 5x/week, Nice 2x/week.");
+					
+					costVarianceMode = Console.ReadLine().ToUpper();
 
-            //do math for cost of recipe, from ingredients - give individual cost per ingredient
-            //total weekly cost            
+					string[] validCostVarianceModes = ["A", "B"];
+
+					if (string.IsNullOrWhiteSpace(costVarianceMode)
+						|| !validCostVarianceModes.Contains(costVarianceMode))
+					{
+						Console.WriteLine("You must enter a variance mode to continue...");
+					}
+					else
+					{
+						break;
+					}
+				}
+				
+				recipesToDisplay = RandomizeMeals(weeklyBudget, costVarianceMode, recipesToPrep, recipesToDisplay);
+
+				//display recipes for week - iterate over recipesToDisplay List
+				//display total cost of recipes for week - iterate over recipesToDisplay List to calculate
+				foreach (Recipe r in recipesToDisplay)
+				{
+					//Console.WriteLine(r.PrintRecipe); --outputs System.Action, not the recipe!
+					Console.WriteLine($"Recipe: {r.Name}");
+					Console.WriteLine("Ingredients: " + r.Ingredients);
+					Console.WriteLine("Instructions:");
+					Console.WriteLine(r.Instructions);
+					Console.WriteLine("Cost: $" + r.Cost);
+					totalCostOfRecipes += r.Cost;
+				}
+
+				Console.WriteLine("Total Cost of Recipes: $" + totalCostOfRecipes);
+				Console.WriteLine("Budget Usage: " + Convert.ToString((totalCostOfRecipes/weeklyBudget) * 100) + "%");
+				
+	            //do math for cost of recipe, from ingredients - give individual cost per ingredient
+    	        //total weekly cost
+			}
+			catch (Exception ex) 
+			{
+				Console.WriteLine(ex.Message);
+				Console.WriteLine(ex.StackTrace);
+			}
+
+			Console.ReadLine(); 
         }
 
         //method to handle cost variance logic
